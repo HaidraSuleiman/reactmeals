@@ -9,7 +9,11 @@ export default function Meals() {
     data: loadedMeals,
     isLoading,
     error,
-  } = useHttp("http://localhost:3000/meals", config, []);
+  } = useHttp(
+    "https://reactmeals-6cb03-default-rtdb.firebaseio.com/meals.json",
+    config,
+    []
+  );
 
   if (isLoading) {
     return <p className="center">Fetching meals...</p>;

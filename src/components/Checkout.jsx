@@ -25,8 +25,11 @@ export default function Checkout() {
     isLoading: isSending,
     error,
     sendRequest,
-    clearData
-  } = useHttp("http://localhost:3000/orders", requestConfig);
+    clearData,
+  } = useHttp(
+    "https://reactmeals-6cb03-default-rtdb.firebaseio.com/orders.json",
+    requestConfig
+  );
 
   const cartTotal = cartCtx.items.reduce((totalPrice, item) => {
     return totalPrice + item.quantity * item.price;
@@ -55,8 +58,6 @@ export default function Checkout() {
         },
       })
     );
-
-    console.log(customerData);
   }
   if (data && !error) {
     return (
